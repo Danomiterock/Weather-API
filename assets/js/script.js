@@ -29,26 +29,36 @@ function getWeather(cityName) {
       if (weather.cod === "404") {
         alert("City not found");
         return;
+      
       }
       //variables for latitude and longitude
       var lat = weather.coord.lat;
       var lon = weather.coord.lon;
-      renderMainCard(weather)
+      renderMainCard(weather);
       //push city information from api return to local storage
       //cityName is pushed from the city name retrieved in weather data
-      cityName = (weather.name)
+      cityName = (weather.name);
       localStorage.setItem("cityName", JSON.stringify(cityName));
       // createCityNameButtons();
+
+      //This variable contains the information for the Five Day forcast
+    var fiveDayCard = ""
+      renderMainCard(weatherData);
+      localStorage.setItem("fiveDayCard", JSON.stringify(fiveDayCard));
 
       console.log(weather.main.temp);
 
     });
 }
-
+// render maincard for city, date, weather, etc
 function renderMainCard(weatherData) {
 // var h1 = document.createElement("h1");
 // h1.innerText(weatherData.name);
-// mainCardDiv.appendChild(h1);
+// mainCardDiv.appendChild(h1);               
+
+}
+//this function places the Five Day Card information
+function renderFiveDayCard(weatherData){
 
 }
 
