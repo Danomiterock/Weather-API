@@ -43,18 +43,31 @@ function getWeather(cityName) {
 
       //This variable contains the information for the Five Day forcast
     var fiveDayCard = ""
-      renderMainCard(weatherData);
+      
       localStorage.setItem("fiveDayCard", JSON.stringify(fiveDayCard));
 
-      console.log(weather.main.temp);
+      console.log(weather);
 
     });
 }
 // render maincard for city, date, weather, etc
 function renderMainCard(weatherData) {
-// var h1 = document.createElement("h1");
-// h1.innerText(weatherData.name);
-// mainCardDiv.appendChild(h1);               
+var h1 = document.createElement("h1");
+h1.textContent = (weatherData.name);
+mainCardDiv.appendChild(h1);       
+
+var h3 = document.createElement("h3");
+var fTemp = (weatherData.main.temp - 273.15) * (9/5) + 32
+h3.textContent = fTemp.toFixed() + " degrees"
+mainCardDiv.appendChild(h3);   
+
+var h3 = document.createElement("h3");
+h3.textContent = weatherData.main.humidity + "%"
+mainCardDiv.appendChild(h3);  
+
+var h3 = document.createElement("h3");
+h3.textContent = weatherData.wind.speed + "mph"
+mainCardDiv.appendChild(h3);  
 
 }
 //this function places the Five Day Card information
