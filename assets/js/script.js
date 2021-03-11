@@ -77,7 +77,7 @@ function getWeather(cityName) {
     var oneCallURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${api_key}`;
     var fiveDay = oneCallUrl
     var h1 = document.createElement("hi")
-    
+
     
   }
   
