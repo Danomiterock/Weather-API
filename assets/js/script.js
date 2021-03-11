@@ -66,7 +66,8 @@ function getWeather(cityName) {
     var h3 = document.createElement("h3");
     h3.textContent = "Wind Speed: " + weatherData.wind.speed + "mph"
     mainCardDiv.appendChild(h3);  
-    
+
+      
     renderMainCard(weatherData)
   }
   //this function places the Five Day Card information
@@ -76,10 +77,21 @@ function getWeather(cityName) {
     //var targeting the one call url endpoint that contains the 5 day forecast
     var oneCallURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${api_key}`;
     var fiveDay = oneCallUrl
-    var h1 = document.createElement("hi")
+    var h1 = document.createElement("h1"); 
+    h1 = "5-Day Forecast"; 
+        // function to retrieve data
+        fetch(oneCallURL);
+        .then((data) => data.json());
+        .then(function (oneCallData) {
+    console.log(oneCallData);
+    var UVDisplay = document.querySelector("#UVI");
+    UVDisplay = oneCallData.current.uvi;
 
-    
+    var fiveDayForecast = document.createElement("h3");
+    fiveDayForecast = oneCallDaily.daily;
+
   }
   
+  renderFiveDayCard(oneCallData)
   // console.log("Tucson");
   
