@@ -1,18 +1,22 @@
 #main-card {
     display: flexbox;
-    background-color: aqua;
+    justify-content: flex-start;
+    background-color: rgb(125, 219, 219);
     color: black;
     margin: auto;
-    height: 400px;
+    text-align: center;
+    height: 300px;
     width: 300px;
     border-style: solid;
     border-color: black;
-    border-width: 10px;
+    border-radius: 25px;
+    border-width: 1px;
 }
 
 #five-day {
     display: flexbox;
     justify-content: space-around;
+    flex-direction: row;
     background-color: lightgrey;
     color: black;
 }
