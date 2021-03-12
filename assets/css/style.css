@@ -1,0 +1,18 @@
+#main-card {
+    display: flexbox;
+    background-color: aqua;
+    color: black;
+    margin: auto;
+    height: 400px;
+    width: 300px;
+    border-style: solid;
+    border-color: black;
+    border-width: 10px;
+}
+
+#five-day {
+    display: flexbox;
+    justify-content: space-around;
+    background-color: lightgrey;
+    color: black;
+}

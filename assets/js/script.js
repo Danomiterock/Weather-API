@@ -1,5 +1,7 @@
 //API key for Open Weather
 var api_key = "33c4d45a4597dc2f2025c1d244be92c6";
+//variables for city
+var city = ""
 //object targeting form
 var form = document.getElementById("search");
 
@@ -10,14 +12,13 @@ var mainCardDiv = document.getElementById("main-card");
 //add event listener for button and causes search input to be received
 form.addEventListener("submit", function (e) {
   e.preventDefault();
-  //variables for city
-  var cityName = document.getElementById("search-input").value;
-  getWeather(cityName);
+  city = document.getElementById("search-input").value;
+  getWeather(city);
 });
 //call function get weather
 function getWeather(cityName) {
   //URL for data end point
-  var currentWeatherURL = `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${api_key}`;
+  var currentWeatherURL = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api_key}`;
   //variables for latitude and longitude
   // function to retrieve data
   fetch(currentWeatherURL)
@@ -29,6 +30,7 @@ function getWeather(cityName) {
         return;
       }
       renderMainCard(weather);
+      renderFiveDayCard(weather);
       //push city information from api return to local storage
       //cityName is pushed from the city name retrieved in weather data
       cityName = weather.name;
@@ -37,55 +39,67 @@ function getWeather(cityName) {
 
       //This variable contains the information for the Five Day forcast
       var fiveDayCard = "";
-
+    
       localStorage.setItem("fiveDayCard", JSON.stringify(fiveDayCard));
 
       console.log(weather);
     });
 }
 // render maincard for city, date, weather, etc
-function renderMainCard(weatherData) {
+function renderMainCard(data) {
   var h1 = document.createElement("h1");
-  h1.textContent = weatherData.name;
+  // console.log(data);
+  h1.textContent = data.name;
   // var date = new Date();
   // displayDate = date.toLocaleString('en-US',{month: 'numeric', day:'2-digit', year:'numeric'});
   mainCardDiv.appendChild(h1);
 
   var h3 = document.createElement("h3");
-  var fTemp = (weatherData.main.temp - 273.15) * (9 / 5) + 32;
+  var fTemp = (data.main.temp - 273.15) * (9 / 5) + 32;
   h3.textContent = "Temperature: " + fTemp.toFixed() + "°F";
   mainCardDiv.appendChild(h3);
 
   var h3 = document.createElement("h3");
-  h3.textContent = "Humidity: " + weatherData.main.humidity + "%";
+  h3.textContent = "Humidity: " + data.main.humidity + "%";
   mainCardDiv.appendChild(h3);
 
   var h3 = document.createElement("h3");
-  h3.textContent = "Wind Speed: " + weatherData.wind.speed + "mph";
+  h3.textContent = "Wind Speed: " + data.wind.speed + "mph";
   mainCardDiv.appendChild(h3);
 
-  renderMainCard(weatherData);
 }
 //this function places the Five Day Card information
-function renderFiveDayCard(weatherData) {
-  var lat = weatherData.coord.lat;
-  var lon = weatherData.coord.lon;
+function renderFiveDayCard(data) {
+  console.log("banana");
+  // var lat = data.coord.lat;
+  // var lon = data.coord.lon;
   //var targeting the one call url endpoint that contains the 5 day forecast
-  var oneCallURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${api_key}`;
+  var fiveDayFore = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${api_key}`;
   // var fiveDay = oneCallUrl
   var h1 = document.createElement("h1");
   h1 = "5-Day Forecast";
   // function to retrieve data
-  fetch(oneCallURL);
-  then((data) => data.json());
-  then(function (oneCallData) {
+  fetch(fiveDayFore)
+  .then((data) => data.json())
+  .then(function (oneCallData) {
     console.log(oneCallData);
-    var UVDisplay = document.querySelector("#UVI");
-    UVDisplay = oneCallData.current.uvi;
-
+    // var UVDisplay = document.querySelector("#UVI");
+    // UVDisplay.innerHTML = oneCallData.current.uvi;
+    // console.log(oneCallData.current.uvi);
     var fiveDayForecast = document.createElement("h3");
     fiveDayForecast = oneCallData.daily;
-
-    renderFiveDayCard(oneCallData);
+    
+    for (let index = 0; index < oneCallData.list.length; index++) {
+         if (oneCallData.list[index].dt_txt.includes("12:00:00")){
+        var date = oneCallData.list[index].dt_txt
+        var constructor = oneCallData.list[index]._proto_.constructor
+        var fiveDayCont = document.getElementById("five-day")
+        fiveDayCont.append(date)
+        fiveDayCont.append(constructor)
+      }
+    }
   });
 }
+
+renderMainCard();
+renderFiveDayCard();
