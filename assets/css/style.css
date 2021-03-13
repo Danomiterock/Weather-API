@@ -1,12 +1,12 @@
 #header {
     color: blue;
     text-shadow: black;
-    t
+    
 }
 
 .form-inline {
-    display: flexbox;
-    justify-content: right;
+    display: flex;
+    justify-content: flex-start;
     align-items: flex-end;
 }
 
@@ -25,13 +25,29 @@
     font-weight: bold;
 }
 
-#five-day {
+body {
+    background: url("../images/sunnySky.jpg") top center no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+
+
+#maincard {
+    outline-width: 5px;
+    outline-color: black;
+}
+
+.list-group-item {
+    width: 400px;
+}
+
+/* #five-day {
     display: flexbox;
     justify-content: space-around;
     flex-direction: row;
     background-color: lightgrey;
-    color: black;
-}
+    color: black; */
+/* } */
 
 /* .fill,
 html,
