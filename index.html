@@ -9,55 +9,35 @@
     <title>Find Weather Report</title>
 </head>
 <body>
-    <nav class="navbar navbar-dark bg-primary">
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
         <!-- Navbar content -->
+        <h1 id="header">Weather Dashboard <img id="sunshine" src="assets\images\sunshine .jpg" alt="sunshine"></imd></h1>
+        <form class="form-inline">
+            <input id="userInput" class="form-control mr-sm-2" type="search" placeholder="Enter City Name" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" id="submit">Search</button>
+          </form>
       </nav>
-   <form id="search">
-       <h1>Search for a City</h1>
-        <input type="text" id="search-input">"Enter City Name"</input>
-        <button>Search</button>
-   </form>
    <div id="main-card">
-       <p id="UVI"></p>
+       <p id="UVI"></p>       
+        <ul id="search-history" class="list-group list-group-flush"></ul>
+    </div>
+    <div id="results" class="col-md-9 hidden">
+        <div class="row">
+            <div class="col-12"></div>
+        </div>    
    </div>
    <div id="five-day"></div>
     <script src="./assets/js/script.js"></script>
+    <!-- add moment.js  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
 </body>
 </html>
 
 
-   
-  
-  <!-- <body>
-    <div class="container-fluid">
-    Header --> -->
-    <!-- <header class="row navbar navbar-dark bg-dark">
-      <h1 class="col-12 text-center">Weather-Dashboard</h1>
-    </header> -->
-    <!-- Header End -->
-      <!-- <div class="row fill"> -->
 
+       
+         
 
-        <!-- Sidebar - Search bar + search history -->
-        <!-- <div class="col-md-3 border border-dark bg-light pt-3">
-          <h5>Search for a city:</h5>
-          <form>
-            <div class="form-group input-group mb-1">
-              <input type="text" class="form-control" id="city-search" placeholder="Search A City!"/>
-              <div class="input-group-append">
-                <button type="button" id="submitBtn" class="btn btn-primary">Submit</button>
-              </div>
-            </div>
-          </form>
-          <div class="card">
-            <ul id="search-history" class="list-group list-group-flush"></ul>
-          </div>
-        </div>
-        <div id="results" class="col-md-9 hidden">
-            <div class="row">
-                <div class="col-12">
-
-                    <!-- Main Results Section -->
                     <!-- Current Weather Results -->
                     <!-- <div id="current-weather" class = "border rounded mt-2 mb-2 p-4">
                         <h2 id="current-city"><span id="current-date"></span><img src="https://placekitten.com/40/40"> </h2>

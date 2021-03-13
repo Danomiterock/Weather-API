@@ -1,16 +1,28 @@
-#main-card {
+#header {
+    color: blue;
+    text-shadow: black;
+    t
+}
+
+.form-inline {
     display: flexbox;
-    justify-content: flex-start;
-    background-color: rgb(125, 219, 219);
-    color: black;
-    margin: auto;
-    text-align: center;
-    height: 300px;
-    width: 300px;
-    border-style: solid;
-    border-color: black;
-    border-radius: 25px;
+    justify-content: right;
+    align-items: flex-end;
+}
+
+#sunshine {
+    height: 65px;
+    width: auto;
     border-width: 1px;
+    border-color: black;
+    border-radius: 25%;
+    border-style: solid;
+}
+
+.btn {
+    background-color: beige;
+    color: black;
+    font-weight: bold;
 }
 
 #five-day {
