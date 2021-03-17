@@ -26,7 +26,7 @@ $(form).on("click", function (e) {
 //call function get weather
 function getWeather(city) {
   //URL for data end point
-  var currentWeatherURL = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api_key}`;
+  var currentWeatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api_key}`;
   // function to retrieve data
   fetch(currentWeatherURL)
     .then((data) => data.json())
@@ -94,7 +94,7 @@ function renderFiveDayCard(data) {
   var fiveDayFore = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${api_key}`;
   // var fiveDay = oneCallUrl
   var h1 = document.createElement("h1");
-  h1 = "5-Day Forecast";
+  h1.innerText = "5-Day Forecast";
   // function to retrieve data
   fetch(fiveDayFore)
     .then((data) => data.json())
@@ -103,16 +103,29 @@ function renderFiveDayCard(data) {
       // var UVDisplay = document.querySelector("#UVI");
       // UVDisplay.innerHTML = oneCallData.current.uvi;
       // console.log(oneCallData.current.uvi);
-      var fiveDayForecast = document.createElement("h3");
-      fiveDayForecast = oneCallData.daily;
+      
+     
 
       for (let index = 0; index < oneCallData.list.length; index++) {
         if (oneCallData.list[index].dt_txt.includes("12:00:00")) {
+          var fiveDayCard = document.createElement("div");
+
           var date = oneCallData.list[index].dt_txt;
-          var img = oneCallData.list[index].main.weather;
+          var dateEl = document.createElement("p");
+          dateEl.innerText = date;
+          fiveDayCard.append(dateEl);
+
+          var img = oneCallData.list[index].weather[0].icon;
+          var imgEl = document.createElement("img");
+          imgEl.setAttribute("src", "https://openweathermap.org/img/w/" + img + ".png");
+          fiveDayCard.append(imgEl);
+
           var temp = oneCallData.list[index].main.temp;
           var humid = oneCallData.list[index].main.humidity;
           var fTemp2 = (temp - 273.15) * (9 / 5) + 32;
+
+          fiveDayDiv.append(fiveDayCard)
+
           // var fiveDayCont = document.getElementById("five-day");
           // var container = document.createElement("div");
           // var blk = document.createElement("p");
@@ -121,12 +134,13 @@ function renderFiveDayCard(data) {
           // fiveDayCont.append(date);
           // fiveDayCont.append("Temperature: " + fTemp2.toFixed() + "°F");
           // fiveDayCont.append("Humidity: " + humid + "%")
-          var container = document.createElement("div");
-          var dayof5 = document.createElement("div");
-          var blk = document.createElement("p");
-          dayof5.textContent = blk.append(date, img, fTemp2, humid);
-          container.append(dayof5);
-          return container;
+          // var container = document.createElement("div");
+          // var dayof5 = document.createElement("div");
+          // var blk = document.createElement("p");
+          // dayof5.textContent = blk.append(date, img, fTemp2, humid);
+          // container.append(dayof5);
+          // return container;
+        
         }
       }
     });
