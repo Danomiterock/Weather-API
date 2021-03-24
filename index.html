@@ -4,23 +4,33 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./assets/css/style.css" />
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Weather Dashboard</title>
   </head>
-​
+  ​
   <body>
     <!-- navbar from bootstrap -->
     <nav class="navbar navbar-light" style="background-color: #e3f2fd">
-      <!-- Navbar title -->
       <h1 id="header">
         Weather Dashboard
-        <img id="sunshine" src="assets\images\sunshine.jpg" alt="sunshine" />
+        <img
+          id="sunshine"
+          style="
+            height: 65px;
+            border-width: 1px;
+            border-color: black;
+            border-radius: 25%;
+            border-style: solid;
+          "
+          src="assets\images\sunshine.jpg"
+          alt="sunshine"
+        />
       </h1>
       <!-- put search form inside navbar -->
       <form class="form-inline">
@@ -57,7 +67,7 @@
       </div>
     </div>
     <!-- Maincard where today's data will be displayed -->
-​
+    ​
     <!-- div to display five day forecast in cards -->
     <!-- </div> -->
     <!-- add moment.js  -->
@@ -82,4 +92,3 @@
     <script src="./assets/js/script.js"></script>
   </body>
 </html>
-C
