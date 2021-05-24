@@ -2,47 +2,54 @@
   color: blue;
   text-shadow: black;
 }
-​ .form-inline {
+.form-inline {
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
 }
-​ .btn {
+.btn {
   background-color: beige;
   color: black;
   font-weight: bold;
 }
-​ body {
+body {
   background: url("../images/sunnySky.jpg") top center no-repeat;
   background-size: cover;
   width: 100%;
 }
-​ #maincard {
+#maincard {
   outline-width: 5px;
   outline-color: black;
 }
-​ .list-group-item {
+.list-group-item {
   width: 400px;
 }
-​ .uvi {
+.uvi {
   padding: 10px;
 }
-​ .uvi.red {
+.uvi.red {
   background-color: red;
 }
-​ .uvi.green {
+.uvi.green {
   background-color: green;
 }
-​ #five-day {
+#search-history {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-radius: 35%;
+}
+#five-day {
   display: flexbox;
   justify-content: space-around;
-  flex-direction: row;
+  flex-direction: column;
   background-color: lightgrey;
   color: black;
 }
-​ header h1 {
+header h1 {
   color: white;
 }
-​ .hidden {
+.hidden {
   display: none;
 }
+ 

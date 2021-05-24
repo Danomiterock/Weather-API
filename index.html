@@ -13,41 +13,40 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Weather Dashboard</title>
   </head>
-  ​
-  <body>
-    <!-- navbar from bootstrap -->
-    <nav class="navbar navbar-light" style="background-color: #e3f2fd">
-      <h1 id="header">
-        Weather Dashboard
-        <img
-          id="sunshine"
-          style="
-            height: 65px;
-            border-width: 1px;
-            border-color: black;
-            border-radius: 25%;
-            border-style: solid;
-          "
-          src="assets\images\sunshine.jpg"
-          alt="sunshine"
-        />
-      </h1>
-      <!-- put search form inside navbar -->
-      <form class="form-inline">
-        <input
-          id="userInput"
-          class="form-control mr-sm-2"
-          type="text"
-          placeholder="Enter City Name"
-          name="searchfield"
-          value=""
-          aria-label="Search"
-        />
-        <button class="btn btn-outline-success my-2 my-sm-0" id="submit">
-          Search
-        </button>
-      </form>
-    </nav>
+  <!-- navbar from bootstrap -->
+  <nav class="navbar navbar-light" style="background-color: #e3f2fd">
+    <h1 id="header">
+      Weather Dashboard
+      <img
+        id="sunshine"
+        style="
+          height: 65px;
+          border-width: 1px;
+          border-color: black;
+          border-radius: 25%;
+          border-style: solid;
+        "
+        src="assets/images/sunshine.jpg"
+        alt="sunshine"
+      />
+    </h1>
+    <!-- put search form inside navbar -->
+    <form class="form-inline">
+      <input
+        id="userInput"
+        class="form-control mr-sm-2"
+        type="text"
+        placeholder="Enter City Name"
+        name="searchfield"
+        value=""
+        aria-label="Search"
+      />
+      <button class="btn btn-outline-success my-2 my-sm-0" id="submit">
+        Search
+      </button>
+    </form>
+  </nav>
+  ​<body>
     <div class="container">
       <div class="row">
         <div class="col">
@@ -69,6 +68,12 @@
     <!-- Maincard where today's data will be displayed -->
     ​
     <!-- div to display five day forecast in cards -->
+    <!-- <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+      <div class="card-header">Header</div>
+      <div class="card-body">
+        <h5 class="card-title">Primary card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div> -->
     <!-- </div> -->
     <!-- add moment.js  -->
     <script
